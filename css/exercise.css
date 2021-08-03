@@ -1,0 +1,92 @@
+.exercise__body{
+	margin-top: 60px;
+	width: 100%;
+}
+.exercise__container{
+	padding-top: 20px;
+	width: 70%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 70% 30%;
+}
+.exercise__info-title h3,
+.container-item-icon{
+	color: #cc6e26;
+}
+.exercise__info-title h3{
+	font-size: 3rem;
+	font-weight: 500;
+}
+.exercise__info-title{
+	justify-content: space-between;
+}
+.exercise__info-name-date{
+	font-size: 1.5rem;
+	opacity: 0.8;
+	padding: 8px 0;
+}
+.exercise__info-match{
+	justify-content: space-between;
+	font-weight: 500;
+	font-size: 1.5rem;
+	margin-bottom: 25px;
+}
+hr{
+	color: #cc6e26;
+}
+.exercise__info-tutorial{
+	margin-top: 10px;
+	font-size: 1.5rem;
+}
+.exercise__info-name{
+	margin-right: 20px;
+}
+.exercise__info{
+	padding-right: 30px;
+}
+.exercise__up{
+	border-radius: 10px;
+	box-shadow: 1px 1px 4px #999;
+	padding: 15px;
+	margin-bottom: 10px;
+}
+.exercise__up-together{
+	display: flex;
+	justify-content: space-between;
+}
+.exercise__title{
+	font-size: 1.9rem;
+	font-weight: 500;
+}
+.exercise__status{
+	opacity: 0.9;
+	font-size: 1.5rem;
+}
+.exercise__up-file{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.exercise__up-file-item{
+	border: 1px solid #eee;
+	border-radius: 8px;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 1.5rem;
+	font-weight: 500;
+
+}
+.exercise__up input{
+	width: 100%;
+	padding: 5px 10px;
+	font-size: 1.6rem;
+	font-weight: 500;
+	outline: none;
+	color: #cc6e26;
+	background-color: white;
+	border: 1px solid #eee;
+	border-radius: 5px;
+}
+.exercise__up input:hover{
+	cursor: pointer;
+	opacity: 0.6;
+}
