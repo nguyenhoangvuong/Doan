@@ -73,8 +73,8 @@ hr{
 	margin-bottom: 10px;
 	font-size: 1.5rem;
 	font-weight: 500;
-
 }
+
 .exercise__up input{
 	width: 100%;
 	padding: 5px 10px;
@@ -90,3 +90,4 @@ hr{
 	cursor: pointer;
 	opacity: 0.6;
 }
+

@@ -1,3 +1,11 @@
+<?php
+    include('../connect/connection.php');
+    session_start();
+    error_reporting(0);
+    if($_SESSION['masinhvien'] == 0){
+        header('location:view/home.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,340 +25,47 @@
         ?>
         <div class="container">
         	<div class="container-list">
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title"><a href="exercise.php" style="color:white">Thực tập chuyên môn k59</a></div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-        		<div class="container-item">
-        			<div class="container-item-header">
-        				<div class="container-item-header-title">
-        					<div class="container-item-title">Thực tập chuyên môn k59</div>
-        					<i class="container-item-icon fal fa-ellipsis-v"></i>
-        					<div class="action">
-        						<p>Hủy đăng ký</p>
-        					</div>
-        				</div>
-        				<div class="container-item-our">Nguyễn Hoàng Vương</div>
-        			</div>
-        			<div class="container-iem-img">
-        				<img src="../img/nguoinhen.png">
-        			</div>
-        			<div class="container-item-body">
-        				<div class="container-item-body-links">
-        					<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-	        				<a href="" class="container-item-body-link">Bài tập 1 7 8 8 7  6 7  9 9 9 9 9 9 9 9 </a>
-        				</div>
-        			</div>
-        			<div class="container-item-footer">
-        				<i class="container-item-footer-icon fas fa-id-card-alt"></i>
-        			</div>
-        		</div>
-
+                <?php
+                $query = mysqli_query($con,"select tblgiaovien.tengiaovien as tengiaovien,tbllop.tenlop as tenlop,tbllop.malop as malop,tbldoan.tendoan as tendoan,tblphancong.madoan as madoan,tblphancong.masinhvien as masinhvien,tblphancong.magiaovien as magiaovien from tblphancong join tbldoan on tblphancong.madoan = tbldoan.madoan join tblgiaovien on tblphancong.magiaovien = tblgiaovien.magiaovien join tbluser on tblphancong.masinhvien = tbluser.masinhvien join tbllop on tbluser.malop = tbllop.malop group by masinhvien");
+                while ($row = mysqli_fetch_array($query)) {
+                    ?>
+                    <div class="container-item">
+                    <div class="container-item-header">
+                        <div class="container-item-header-title">
+                            <div class="container-item-title">
+                                <a href="exercise.php?id=<?php echo $row['malop'] ?>" style="color:white">
+                                    <?php echo $row['tenlop']?>
+                                </a>
+                            </div>
+                            <i class="container-item-icon fal fa-ellipsis-v"></i>
+                            <div class="action">
+                                <p>Hủy đăng ký</p>
+                            </div>
+                        </div>
+                        <div class="container-item-our"><?php echo $row['tengiaovien'] ?></div>
+                    </div>
+                    <div class="container-iem-img">
+                        <img src="../img/nguoinhen.png">
+                    </div>
+                    <div class="container-item-body">
+                        <div class="container-item-body-links">
+                            <?php  
+                                $query1 = mysqli_query($con,"select tbldoan.tendoan as ten,tbldoan.madoan as ma from tbldoan");
+                                while ($row1 = mysqli_fetch_array($query1)) {
+                            ?>
+                                  <a href="exercise.php?id=<?php echo $row['malop'] ?>&&idda=<?php echo $row1['ma'] ?>" class="container-item-body-link"><?php echo $row1['ten']; ?></a>  
+                            <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="container-item-footer">
+                        <i class="container-item-footer-icon fas fa-id-card-alt"></i>
+                    </div>
+                </div>
+                    <?php
+                }
+                ?>
         	</div>
         </div>
     </div>
