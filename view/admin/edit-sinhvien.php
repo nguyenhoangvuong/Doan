@@ -5,16 +5,18 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['masinhvien']==0)) {
   header('location:view/home.php');
   } else{
-    $idkhoa = $_GET['editid'];
+    $idsinhvien = $_GET['editid'];
 
 if(isset($_POST['submit']))
   {
-  	$sername=$_POST['sername'];
-    $pagedes=$_POST['pagedes'];
-    $truongphong=$_POST['truongphong'];
-    $query=mysqli_query($con, "update  tblkhoa set tenkhoa='$sername',mota='$pagedes',truongkhoa = '$truongphong' where makhoa='$idkhoa'");
+    $hoten=$_POST['hoten'];
+    $sodienthoai = $_POST['sodienthoai'];
+    $diachi = $_POST['diachi'];
+    $email = $_POST['email'];
+    $lop = $_POST['lop'];
+    $query=mysqli_query($con, "update  tbluser set hoten = '$hoten',sodienthoai = '$sodienthoai',diachi = '$diachi',email = 'email',malop = '$lop' where masinhvien='$idsinhvien'");
     if ($query) {
-        $msg="Dịch vụ đã được cập nhật !";
+        $msg="Sinh viên đã được cập nhật !".$birthdate;
     }
      else
     {
@@ -75,28 +77,36 @@ if(isset($_POST['submit']))
                                         echo $msg;
                                     }?> 
                                 </p>
-                                <?php $query4 = mysqli_query($con,"select tblkhoa.tenkhoa as tenkhoa,tblkhoa.makhoa,tblkhoa.mota,tblkhoa.truongkhoa as truongkhoa,tblgiaovien.tengiaovien from tblkhoa join tblgiaovien on tblkhoa.truongkhoa = tblgiaovien.magiaovien where tblkhoa.makhoa = '$idkhoa'");
+                                <?php $query4 = mysqli_query($con,"select tbluser.*,tbllop.malop,tbllop.tenlop FROM tbluser join tbllop on tbluser.malop = tbllop.malop WHERE tbluser.masinhvien = '$idsinhvien'");
                                 $row4 = mysqli_fetch_array($query4);
                                  ?>
-                                <div class="form-group"> <label for="exampleInputPassword1">Tên khoa</label>
-                                    <input type="text" id="sername" name="sername" class="form-control"
-                                        placeholder="Tên khoa" value="<?php echo $row4['tenkhoa'] ?>" required="true"> </div>
-                                <div class="form-group"> <label for="exampleInputPassword1">Mô tả</label>
-                                <textarea name="pagedes" id="pagedes" rows="7" class="form-control"><?php echo $row4['mota']; ?></textarea></div>
-                                <div class="form-group"> <label for="exampleInputPassword1">Chọn trưởng phòng</label>
+                                <div class="form-group"> <label for="exampleInputPassword1">Họ tên</label>
+                                <input type="text" id="hoten" name="hoten" class="form-control"
+                                    placeholder="Họ tên" value="<?php echo $row4['hoten'] ?>" required="true"> </div>
+                                <div class="form-group"> <label for="exampleInputPassword1">Ngày sinh</label>
+                                    <div class="form-group"> <label for="exampleInputPassword1">Số điện thoại</label>
+                                <input type="text" id="sodienthoai" name="sodienthoai" class="form-control"
+                                    placeholder="Số điện thoại" value="<?php echo $row4['sodienthoai'] ?>" required="true"> </div>
+                                    <div class="form-group"> <label for="exampleInputPassword1">Địa chỉ</label>
+                                <input type="text" id="diachi" name="diachi" class="form-control"
+                                    placeholder="Địa chỉ" value="<?php echo $row4['diachi'] ?>" required="true"> </div>
+                                    <div class="form-group"> <label for="exampleInputPassword1">Email</label>
+                                <input type="text" id="email" name="email" class="form-control"
+                                    placeholder="Email" value="<?php echo $row4['email'] ?>" required="true"> </div>
+                                <div class="form-group"> <label for="exampleInputPassword1">Chọn lớp</label>
                                     <div class="controls">
-                                        <select name="truongphong" class="form-control" required>
-                                            <option value="<?php echo $row4['truongkhoa'] ?>"><?php echo $managername=$row4['tengiaovien'] ?></option>
-                                            <?php $query5=mysqli_query($con,"select * from tblgiaovien");
+                                        <select name="lop" class="form-control" required>
+                                            <option value="<?php echo $row4['malop'] ?>"><?php echo $managername=$row4['tenlop'] ?></option>
+                                            <?php $query5=mysqli_query($con,"select * from tbllop");
                                             while($row5=mysqli_fetch_array($query5))
                                             {
-                                            echo $manager=$row5['tengiaovien'];
+                                            echo $manager=$row5['tenlop'];
                                             if($managername == $manager){
                                                 continue;
                                             }else{
                                             ?>
-                                            <option value="<?php echo $row5['magiaovien'];?>">
-                                                <?php echo $row5['tengiaovien'];?></option>
+                                            <option value="<?php echo $row5['malop'];?>">
+                                                <?php echo $row5['tenlop'];?></option>
                                             <?php } }?>
                                         </select>
                                     </div>

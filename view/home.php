@@ -26,7 +26,8 @@
         <div class="container">
         	<div class="container-list">
                 <?php
-                $query = mysqli_query($con,"select tblgiaovien.tengiaovien as tengiaovien,tbllop.tenlop as tenlop,tbllop.malop as malop,tbldoan.tendoan as tendoan,tblphancong.madoan as madoan,tblphancong.masinhvien as masinhvien,tblphancong.magiaovien as magiaovien from tblphancong join tbldoan on tblphancong.madoan = tbldoan.madoan join tblgiaovien on tblphancong.magiaovien = tblgiaovien.magiaovien join tbluser on tblphancong.masinhvien = tbluser.masinhvien join tbllop on tbluser.malop = tbllop.malop group by masinhvien");
+                $masinhvien = $_SESSION['masinhvien'];
+                $query = mysqli_query($con,"select tblgiaovien.tengiaovien as tengiaovien,tbllop.tenlop as tenlop,tbllop.malop as malop,tbldoan.tendoan as tendoan,tblphancong.madoan as madoan,tblphancong.masinhvien as masinhvien,tblphancong.magiaovien as magiaovien from tblphancong join tbldoan on tblphancong.madoan = tbldoan.madoan join tblgiaovien on tblphancong.magiaovien = tblgiaovien.magiaovien join tbluser on tblphancong.masinhvien = tbluser.masinhvien join tbllop on tbluser.malop = tbllop.malop where tblphancong.masinhvien = '$masinhvien' group by masinhvien");
                 while ($row = mysqli_fetch_array($query)) {
                     ?>
                     <div class="container-item">
@@ -50,10 +51,10 @@
                     <div class="container-item-body">
                         <div class="container-item-body-links">
                             <?php  
-                                $query1 = mysqli_query($con,"select tbldoan.tendoan as ten,tbldoan.madoan as ma from tbldoan");
+                                $query1 = mysqli_query($con,"select tbldoan.tendoan,tbldoan.madoan from tblphancong join tbldoan on tblphancong.madoan = tbldoan.madoan where tblphancong.masinhvien = '$masinhvien'");
                                 while ($row1 = mysqli_fetch_array($query1)) {
                             ?>
-                                  <a href="exercise.php?id=<?php echo $row['malop'] ?>&&idda=<?php echo $row1['ma'] ?>" class="container-item-body-link"><?php echo $row1['ten']; ?></a>  
+                                  <a href="exercise.php?id=<?php echo $row['malop'] ?>&&idda=<?php echo $row1['madoan'] ?>" class="container-item-body-link"><?php echo $row1['tendoan']; ?></a>  
                             <?php
                                 }
                             ?>

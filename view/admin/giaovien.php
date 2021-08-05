@@ -8,18 +8,20 @@ if (strlen($_SESSION['masinhvien']==0)) {
   else{
     if(isset($_POST['submit']))
     {
-        $khoa=$_POST['sername'];
-        $mota=$_POST['pagedes'];
-        $giaovien = $_POST['truongphong'];
-        $sql=mysqli_query($con,"insert into tblkhoa(tenkhoa,mota,truongkhoa) values('$khoa','$mota','$giaovien')");
+        $hoten=$_POST['sername'];
+        $ngaysinh = $_POST['birthdate'];
+        $sodienthoai = $_POST['sodienthoai'];
+        $email = $_POST['email'];
+        $khoa = $_POST['khoa'];
+        $sql=mysqli_query($con,"insert into tblgiaovien(tengiaovien,ngaysinh,sodienthoai,email,makhoa) values('$hoten','$ngaysinh','$sodienthoai','$email','$khoa')");
         if($sql){
-            $_SESSION['msg']="Tạo khoa thành công!!";
+            $_SESSION['msg']="Tạo giáo viên thành công!!";
         }
     }
     
     if(isset($_GET['del']))
       {
-          mysqli_query($con,"delete from tblkhoa where makhoa = '".$_GET['id']."'");
+          mysqli_query($con,"delete from tblgiaovien where magiaovien = '".$_GET['id']."'");
           $_SESSION['delmsg']="Xóa thành công !!";
       }
     
@@ -28,7 +30,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
 <html lang="en">
     
 <head>
-    <title>SPA || Quản lý khoa</title>
+    <title>SPA || Quản lý giáo viên</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);
@@ -201,7 +203,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
                         <div class="modal-content">
                             <div class="modal-header">
                                 <span class="close">&times;</span>
-                                <h3 style="font-family:times new roman;width:100%;text-align:center">Thêm khoa</h3>
+                                <h3 style="font-family:times new roman;width:100%;text-align:center">Thêm giáo viên</h3>
                             </div>
                             <div class="modal-body">
                                 <div class="form-body">
@@ -210,20 +212,27 @@ if (strlen($_SESSION['masinhvien']==0)) {
                                             <?php if($msg){
                                     echo $msg;
                                 }  ?> </p>
-                                        <div class="form-group"> <label for="exampleInputPassword1">Tên khoa</label>
+                                        <div class="form-group"> <label for="exampleInputPassword1">Họ tên</label>
                                             <input type="text" id="sername" name="sername" class="form-control"
-                                                placeholder="Tên khoa" value="" required="true"> </div>
-                                        <div class="form-group"> <label for="exampleInputPassword1">Mô tả</label>
-                                        <textarea name="pagedes" id="pagedes" rows="7" class="form-control"></textarea></div>
-                                        <div class="form-group"> <label for="exampleInputPassword1">Chọn trưởng phòng</label>
+                                                placeholder="Họ tên" value="" required="true"> </div>
+                                        <div class="form-group"> <label for="exampleInputPassword1">Ngày sinh</label>
+                                            <input type="date" id="birthdate" name="birthdate" class="form-control"
+                                                required="true"> </div>
+                                        <div class="form-group"> <label for="exampleInputPassword1">Số điện thoại</label>
+                                            <input type="text" id="sodienthoai" name="sodienthoai" class="form-control"
+                                                placeholder="Email" value="" required="true"> </div>
+                                        <div class="form-group"> <label for="exampleInputPassword1">Email</label>
+                                            <input type="text" id="email" name="email" class="form-control"
+                                                placeholder="Email" value="" required="true"> </div>
+                                        <div class="form-group"> <label for="exampleInputPassword1">Chọn khoa</label>
                                             <div class="controls">
-                                                <select name="truongphong" class="form-control" required>
-                                                    <option value="">Chọn trưởng phòng</option>
-                                                    <?php $query=mysqli_query($con,"select * from tblgiaovien");
+                                                <select name="khoa" class="form-control" required>
+                                                    <option value="">Chọn khoa</option>
+                                                    <?php $query=mysqli_query($con,"select * from tblkhoa");
                                             while($row=mysqli_fetch_array($query))
                                             {?>
-                                                    <option value="<?php echo $row['magiaovien'];?>">
-                                                        <?php echo $row['tengiaovien'];?></option>
+                                                    <option value="<?php echo $row['makhoa'];?>">
+                                                        <?php echo $row['tenkhoa'];?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -240,7 +249,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
                     </div>
 
                     <div class="table-responsive bs-example widget-shadow">
-                        <h4>Danh sách khoa <button id="myBtn" class="btn btn-primary">Thêm khoa</button></h4>
+                        <h4>Danh sách giáo viên <button id="myBtn" class="btn btn-primary">Thêm giáo viên</button></h4>
                         <?php if(isset($_POST['submit']))
                                 {?>
                         <div class="alert alert-success">
@@ -263,29 +272,29 @@ if (strlen($_SESSION['masinhvien']==0)) {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Mã khoa</th>
-                                    <th>Tên khoa</th>
-                                    <th>Ngày thành lập</th>
-                                    <th>Mô tả</th>
-                                    <th>Trưởng khoa</th>
+                                    <th>Mã giáo viên</th>
+                                    <th>Họ tên</th>
+                                    <th>Ngày Sinh / Số điện thoại</th>
+                                    <th>Email</th>
+                                    <th>Mã khoa / Khoa</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                     <?php
-                                        $ret=mysqli_query($con,"select tblkhoa.*,tblgiaovien.tengiaovien as tengiaovien from  tblkhoa join tblgiaovien on tblkhoa.truongkhoa = tblgiaovien.magiaovien");
+                                        $ret=mysqli_query($con,"select tblgiaovien.*,tblkhoa.tenkhoa as tenkhoa from tblgiaovien join tblkhoa on tblgiaovien.makhoa = tblkhoa.makhoa");
                                         $cnt=1;
                                         while ($row=mysqli_fetch_array($ret)) {
                                     ?>
                                     <tr>
                                         <th scope="row"><?php echo $cnt;?></th>
-                                        <td><?php  echo $row['makhoa'];?></td>
-                                        <td><?php  echo $row['tenkhoa'];?></td>
-                                        <td><?php  echo $row['ngaythanhlap'];?></td>
-                                        <td><?php  echo $row['mota'];?></td>
+                                        <td><?php  echo $row['magiaovien'];?></td>
                                         <td><?php  echo $row['tengiaovien'];?></td>
-                                        <td><a href="edit-khoa.php?editid=<?php echo $row['makhoa'];?>">Sửa</a> || <a
-                                                href="khoa.php?id=<?php echo $row['makhoa']?>&del=delete"
+                                        <td><?php  echo $row['ngaysinh'].' / '.$row['sodienthoai'];?></td>
+                                        <td><?php  echo $row['email'];?></td>
+                                        <td><?php  echo $row['makhoa'].' / '.$row['tenkhoa'];?></td>
+                                        <td><a href="edit-giaovien.php?editid=<?php echo $row['magiaovien'];?>">Sửa</a> || <a
+                                                href="giaovien.php?id=<?php echo $row['magiaovien']?>&del=delete"
                                                 onClick="return confirm('Bạn chắc chắn muốn xóa ?')"><i
                                                     class="icon-remove-sign"></i>Xóa</a></td>
                                     </tr> <?php 
