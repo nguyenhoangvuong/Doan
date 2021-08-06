@@ -28,7 +28,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
 <html lang="en">
 
 <head>
-    <title>SPA || Quản lý niên khóa</title>
+    <title>Niên khóa</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);

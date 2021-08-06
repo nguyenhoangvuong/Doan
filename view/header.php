@@ -22,7 +22,7 @@
         		<div class="header__overview-profile">
         			<img src="../img/nguoinhen.png" alt="">
         			<div class="header__overview-log">
-    					<a href="">Đăng xuất</a>
+    					<a href="../index.php">Đăng xuất</a>
         			</div>
         		</div>
         	</div>

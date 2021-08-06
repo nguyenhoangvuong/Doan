@@ -2,8 +2,8 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if (strlen($_SESSION['bpmsaid']==0)) {
-  header('location:logout.php');
+if (strlen($_SESSION['masinhvien']==0)) {
+  header('location:http:view/home.php');
   } else{
 
 if(isset($_POST['submit']))
@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
 <html lang="en">
 
 <head>
-    <title>SPA | Cập nhật dịch vụ</title>
+    <title>Niên khóa</title>
 
     <script type="application/x-javascript">
     addEventListener("load", function() {

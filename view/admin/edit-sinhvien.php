@@ -28,7 +28,7 @@ if(isset($_POST['submit']))
 <html lang="en">
 
 <head>
-    <title>Khoa</title>
+    <title>Sinh viên</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);

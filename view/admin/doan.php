@@ -35,7 +35,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
 <html lang="en">
     
 <head>
-    <title>Quản lý giáo viên</title>
+    <title>Quản lý đồ án</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);

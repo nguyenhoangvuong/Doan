@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
 <html lang="en">
 
 <head>
-    <title>Khoa</title>
+    <title>Chấm điểm</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);
