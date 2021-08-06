@@ -10,8 +10,42 @@
 
 
         // upfile==================================================================
+        $link = "";
+        $link_status = "display: none;";
+        if (isset($_POST['upload'])) { // If isset upload button or not
+            // Declaring Variables
+            $location = "uploads/";
+            $file_new_name = $idda.$_FILES["file"]["name"]; // New and unique name of uploaded file
+            $file_name = $_FILES["file"]["name"]; // Get uploaded file name
+            $file_temp = $_FILES["file"]["tmp_name"]; // Get uploaded file temp
+            $file_size = $_FILES["file"]["size"]; // Get uploaded file size
 
-    }
+
+            if ($file_size > 10485760) { // Check file size 10mb or not
+                echo "<script>alert('Woops! File is too big. Maximum file size allowed for upload 10 MB.')</script>";
+            } else {
+                
+                $sql = "update tbldoan set name = '$file_name', new_name = '$file_new_name',duongdan = 'http://localhost:8080/QuanLyDoAn/view/download.php?id=".$idda."',done ='done' where madoan = '$idda'";
+                        
+                $result = mysqli_query($con, $sql);
+                if ($result) {
+                    move_uploaded_file($file_temp, $location . $file_new_name);
+                    echo "<script>alert('Wow! Upload successfull')</script>";
+                } else {
+                    echo "<script>alert('Woops! Something wong went.')</script>";
+                }
+            }
+        }
+                
+        }
+
+        // hủy nộp bài
+        if(isset($_POST['cancel'])){
+            mysqli_query($con,"update tbldoan set done='' where madoan = '$idda'");
+        }
+
+
+        
 ?>
 
 <!DOCTYPE html>
@@ -66,10 +100,10 @@
         				<div class="exercise__title">Bài tập của bạn</div>
                         <?php  
                             $msv = $_SESSION['masinhvien'];
-                            $query1 = mysqli_query($con,"select tbldoan.duongdan from tbldoan join tblphancong on tblphancong.madoan = tbldoan.madoan where tblphancong.masinhvien = '$msv' and tbldoan.madoan = '$idda'");
+                            $query1 = mysqli_query($con,"select tbldoan.duongdan,tbldoan.name,tbldoan.done from tbldoan join tblphancong on tblphancong.madoan = tbldoan.madoan where tblphancong.masinhvien = '$msv' and tbldoan.madoan = '$idda'");
                             $row1 = mysqli_fetch_array($query1);
 
-                            if($row1['tbldoan.tinhtrang'] == ''){
+                            if($row1['done'] == ''){
                                 ?>
                                     <div class="exercise__status" style="color:red">Thiếu</div>
                                 <?php
@@ -85,18 +119,21 @@
                         </div>
                         
                         <?php
-                        if($row1['tbldoan.tinhtrang'] == ''){
+                        if($row1['done'] == ''){
                             ?>  
                                 <div class="excercise.php" style="display: flex;flex-direction: column;margin-top: 20px">
-                                <form method="POST" action="" enctype="multipart/form-data">
-                                    <input type="file" name="file">
-                                    <input style="background-color: #cc6e26;color: white;margin-top: 10px;" type="submit" value="Upload" name="nopbai">
+                                <form action="" method="POST" enctype="multipart/form-data" class="body">
+                                    <input type="file" name="file" id="upload" required>
+                                    <button name="upload" class="btn" style="width: 100%;background-color: #cc6e26;border: none;border-radius: 5px;font-size: 16px;color: white;padding: 5px 10px;margin-top: 10px;cursor: pointer;">Upload</button>
                                 </form>
                                 </div>
                             <?php
                         }else{
                             ?>
-                                <input type="submit" name="done" value="Hủy nộp bài"></input>
+                                <p><?php echo $row1['name']; ?></p>
+                                <form action="" method="post">
+                                    <input type="submit" name="cancel" value="Hủy nộp bài" style="margin-top: 20px;"></input>
+                                </form>
                             <?php
                         }
                         ?>

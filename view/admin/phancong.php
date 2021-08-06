@@ -18,8 +18,11 @@ if (strlen($_SESSION['masinhvien']==0)) {
     }
     
     if(isset($_GET['del']))
-      {
-          mysqli_query($con,"delete from tblphancong where maphancong = '".$_GET['id']."'");
+      {     
+          $id = $_GET['id'];
+          $idda = $_GET['idda'];
+          mysqli_query($con,"update tbldoan set tinhtrang = '' where madoan = '$idda'");
+          mysqli_query($con,"delete from tblphancong where maphancong = '$id'");
           $_SESSION['delmsg']="Xóa thành công !!";
       }
     
@@ -28,7 +31,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
 <html lang="en">
     
 <head>
-    <title>SPA || Phân công đồ án</title>
+    <title>Phân công đồ án</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);
@@ -214,7 +217,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
                                             <div class="controls">
                                                 <select name="doan" class="form-control" required>
                                                     <option value="">Chọn đồ án</option>
-                                                    <?php $query=mysqli_query($con,"select * from tbldoan");
+                                                    <?php $query=mysqli_query($con,"SELECT madoan,tendoan FROM tbldoan WHERE tinhtrang = ''");
                                             while($row=mysqli_fetch_array($query))
                                             {?>
                                                     <option value="<?php echo $row['madoan'];?>">
@@ -303,7 +306,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
                                         <td><?php  echo $row['magiaovien'].' / '.$row['tengiaovien'];?></td>
                                         <td><?php  echo $row['masinhvien'].' / '.$row['hoten'];?></td>
                                         <td><a
-                                                href="phancong.php?id=<?php echo $row['maphancong']?>&del=delete"
+                                                href="phancong.php?id=<?php echo $row['maphancong']?>&idda=<?php  echo $row['madoan']?>&del=delete"
                                                 onClick="return confirm('Bạn chắc chắn muốn xóa ?')"><i
                                                     class="icon-remove-sign"></i>Xóa</a></td>
                                     </tr> <?php 

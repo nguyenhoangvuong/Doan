@@ -16,7 +16,7 @@
       }else{
         $_SESSION['masinhvien'] = $_POST['masinhvien'];
         $_SESSION['hoten']=$ret['hoten'];
-        header('location:view/admin/dashboard.php');
+        header('location:view/admin/doan.php');
       }
     }
     else{

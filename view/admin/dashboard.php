@@ -17,7 +17,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
 <html lang="en">
 
 <head>
-    <title>SPA | Bảng điều khiển</title>
+    <title>Bảng điều khiển</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);
@@ -158,18 +158,13 @@ if (strlen($_SESSION['masinhvien']==0)) {
             <div class="row" style="margin-top:-60px;">
                 <div class="col-sm-7">
                     <div class="panel panel-body" style="height:470px">
-                        Thống Kê Tổng Doanh Thu
                         <div class="col-sm-12">
-                            <div id="cargaLineal"></div>
+                            <div style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-5">
-                    <div class="panel panel-body">
-                        <div class="col-sm-12">
-                            <span id="myChart"></span>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-sm-5" style="font-family:'Ubuntu', sans-serif;">
                     <div class="panel panel-body" style="width:auto;height:215px">

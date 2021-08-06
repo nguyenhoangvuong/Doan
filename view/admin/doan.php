@@ -6,6 +6,8 @@ if (strlen($_SESSION['masinhvien']==0)) {
   header('location:view/home.php');
   } 
   else{
+    mysqli_query($con,"update tbldoan set tinhtrang ='đã giao' where tbldoan.madoan in (SELECT tblphancong.madoan FROM tblphancong)");
+
     if(isset($_POST['submit']))
     {
         $tendoan=$_POST['tendoan'];
@@ -22,13 +24,18 @@ if (strlen($_SESSION['masinhvien']==0)) {
           mysqli_query($con,"delete from tbldoan where madoan = '".$_GET['id']."'");
           $_SESSION['delmsg']="Xóa thành công !!";
       }
+      // if(isset($_POST['chamdiem'])){
+      //   $diem = $_POST['diem'];
+      //   $id = $_POST['iddaan'];
+      //   $sql=mysqli_query($con,"update tbldoan set diem = '$diem' where madoan = '$id'");
+      // }
     
   ?>
 <!DOCTYPE HTML>
 <html lang="en">
     
 <head>
-    <title>SPA || Quản lý giáo viên</title>
+    <title>Quản lý giáo viên</title>
     <script type="application/x-javascript">
     addEventListener("load", function() {
         setTimeout(hideURLbar, 0);
@@ -256,7 +263,7 @@ if (strlen($_SESSION['masinhvien']==0)) {
                                 <tr>
                                     <th>#</th>
                                     <th>Mã đồ án / Tên đồ án</th>
-                                    <th>Đường dẫn</th>
+                                    <th>Link download</th>
                                     <th>Mô tả</th>
                                     <th>Điểm</th>
                                     <th>Ngày đăng</th>
@@ -274,14 +281,30 @@ if (strlen($_SESSION['masinhvien']==0)) {
                                     <tr>
                                         <th scope="row"><?php echo $cnt;?></th>
                                         <td><?php  echo $row['madoan'].' / '.$row['tendoan'];?></td>
-                                        <td><?php  echo $row['duongdan'];?></td>
+                                        <td>
+                                            <?php  
+                                            if($row['done'] != ''){
+                                                ?>
+                                                <a href="<?php echo $row['duongdan'] ?>"><?php echo $row['name'];?></a>
+                                                <?php
+                                            }
+                                            ?>
+                                        </td>
                                         <td><?php  echo $row['mota'];?></td>
                                         <td><?php  echo $row['diem'];?></td>
                                         <td><?php  echo $row['ngaydang'];?></td>
                                         <td><?php  echo $row['deadline'];?></td>
                                         <td><?php  echo $row['tinhtrang'];?></td>
-                                        <td> || <a
-                                                href="doan.php?id=<?php echo $row['madoan']?>&del=delete"
+                                        <td>
+                                            <?php 
+                                            if($row['name'] != ''){
+                                                ?>
+                                                <a href="chamdiem.php?id=<?php echo $row['madoan'] ?>">Chấm điểm</a> ||
+                                                <a target="_blank" href="http://localhost:8080/QuanLyDoAn/view/uploads/<?php echo $row['new_name'];?>">Xem file</a> || 
+                                                <?php
+                                                }
+                                             ?>
+                                         <a href="doan.php?id=<?php echo $row['madoan']?>&del=delete"
                                                 onClick="return confirm('Bạn chắc chắn muốn xóa ?')"><i
                                                     class="icon-remove-sign"></i>Xóa</a></td>
                                     </tr> <?php 

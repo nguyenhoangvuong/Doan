@@ -3,8 +3,8 @@
         <button id="showLeftPush"><i class="fa fa-bars"></i></button>
         <div class="logo">
           <a href="dashboard.php">
-            <h1>SPA</h1>
-            <span>SONGOKU</span>
+            <h1>Plagiarisma</h1>
+            <span>UTC2</span>
           </a>
         </div>
         <div class="clearfix"> </div>
@@ -17,7 +17,7 @@
               $num=mysqli_num_rows($ret1);
             ?>  
             <li class="dropdown head-dpdn">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue"><?php echo $num;?></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i></a>
               
               <ul class="dropdown-menu">
                 <li>
@@ -50,10 +50,10 @@
         </div>
         <div class="profile_details">  
         <?php
-          $adid=$_SESSION['bpmsaid'];
-          $ret=mysqli_query($con,"select Tenadmin from tbladmin where ID='$adid'");
+          $adid=$_SESSION['masinhvien'];
+          $ret=mysqli_query($con,"select hoten from tbluser where masinhvien='$adid' and quyen = 'admin'");
           $row=mysqli_fetch_array($ret);
-          $name=$row['Tenadmin'];
+          $name=$row['hoten'];
 
         ?> 
           <ul>
@@ -73,7 +73,7 @@
               <ul class="dropdown-menu drp-mnu">
                 <li> <a href="change-password.php"><i class="fa fa-cog"></i> Settings</a> </li> 
                 <li> <a href="admin-profile.php"><i class="fa fa-user"></i> Profile</a> </li> 
-                <li> <a href="index.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                <li> <a href="http://localhost:8080/QuanLyDoAn/index.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
               </ul>
             </li>
           </ul>
